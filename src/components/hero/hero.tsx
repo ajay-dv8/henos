@@ -8,7 +8,7 @@ const stats = [
 
 export default function Hero() {
   return (
-    <div className="relative h-screen w-full text-white overflow-hidden">
+    <div className="fixed inset-0 z-0 overflow-hidden text-white">
       <Jvideo
         src="/vids/hero.webm"
         poster="/hp.png"
@@ -18,7 +18,7 @@ export default function Hero() {
       {/* darken video so text stays readable */}
       <div className="absolute inset-0 bg-black/40 pointer-events-none" />
 
-      <div className="absolute inset-0 flex flex-col justify-between p-8 md:p-12">
+      <div className="absolute inset-0 flex flex-col justify-between p-6 md:p-12">
         {/* stats, top right */}
         <div className="flex justify-end">
           <div className="hidden md:block w-[420px]">
@@ -41,7 +41,7 @@ export default function Hero() {
               Sustainable Energy Solutions for a Better Future
             </h1>
             <p className="mt-4 max-w-3xl font-semibold text-xl text-white/80">
-              Empowering businesses and communities to thrive in a low-carbon world through tailored clean energy solutions.
+              As an NPA-licensed LPG Marketing Company, Henos Energy is committed to Empowering businesses and communities to thrive in a low-carbon world through tailored clean energy solutions.
             </p>
           </div>
 
