@@ -69,7 +69,7 @@ export const Jvideo = ({
         muted
         playsInline
         preload="none"
-        className={cn("absolute top-0 left-0 w-full h-full rounded-lg object-cover", className)}
+        className={cn("absolute top-0 left-0 w-full h-full object-cover", className)}
       >
         {/* add video source when in view */}
         {isInView && <source src={src} type="video/webm" />}
