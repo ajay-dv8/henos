@@ -14,45 +14,36 @@ type servicesType = {};
 
 const services = [
     {
-    id: 3,
+    id: 1,
     title: "Drive through",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque iure ducimus doloremque incidunt beatae similique harum eaque et recusandae odio, minima enim maiores dolorem officiis? Vero impedit illum dolorum suscipit?",
     image: "/images/dt1.jpg",
-    subTitle: "",
+    subTitle: "Convinience at you service, we make it simple for you ",
     subImage: "/images/dt2.jpg",
   },
   {
     id: 2,
     title: "Delivery",
     description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque iure ducimus doloremque incidunt beatae similique harum eaque et recusandae odio, minima enim maiores dolorem officiis? Vero impedit illum dolorum suscipit?",
-    image: "",
-    titleTwo: "",
+    image: "/images/d1.png",
+    subTitle: "Cant make it to us? Dont worry, We will come to you",
     subImage: "",
   },
   {
     id: 3,
     title: "Industrial",
     description: "lorem ipsum",
-    image: "",
-    titleTwo: "",
+    image: "/images/ind1.jpg",
+    subTitle: "Reliable and efficient energy solutions for your business",
     subImage: "",
   },
-
   {
     id: 4,
-    title: "USSD",
-    description: "lorem ipsum",
-    image: "",
-    subTitle: "",
-    subImage: "",
-  },
-    {
-    id: 5,
     title: "Cylinder exchnge",
     description: "lorem ipsum",
-    image: "",
-    titleTwo: "",
+    image: "/images/cx.png",
+    subTitle: "Convenient cylinder exchange service, ya fiili didaada!!!",
     subImage: "",
   },
 ];
@@ -94,7 +85,7 @@ function StackCard({
       )}
     >
       {/* Main image section */}
-      <div className="h-152 w-[62rem] flex flex-col bg-green-400 abs-border rounded-md relative overflow-hidden">
+      <div className="h-152 w-[62rem] flex flex-col rounded-md relative overflow-hidden">
         {/* bg picture (transition effect to be reintroduced later) */}
         {service.image && (
           <img
@@ -114,8 +105,8 @@ function StackCard({
         {/* buttom section */}
         <div className="mt-auto flex w-full relative">
           {/* description */}
-          <div className="p-4 rounded-bl-md border-white/10 bg-white/10 p-4 backdrop-blur-md transition group-hover:bg-white/20">
-            <p className="w-2xl">{service.description}</p>
+          <div className="p-4 rounded-bl-md rounded-tr-md  border border-white/10 bg-white/10 backdrop-blur-sm transition group-hover:bg-white/20">
+            <p className="w-2xl text-3xl text-white drop-shadow-2xl">{service.subTitle}</p>
           </div>
           {/* images section */}
           <div className="flex h-[7rem] w-[20rem] bg-black rounded-br-lg rounded-tl-lg drop-shadow-2xl">
