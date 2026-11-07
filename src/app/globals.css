@@ -128,3 +128,12 @@
     @apply font-sans;
   }
 }
+
+/* Custom Card border */
+
+/* .abs-border {
+  border-top-left-radius:50px ;
+  corner-top-left-shape: notch;
+  border-top-width: 50px;
+  border-left-width: 15px;
+} */
