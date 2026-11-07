@@ -46,7 +46,10 @@ export default function AboutSection() {
       {/* Card */}
       <div className="flex gap-12">
         {services.map((service, index) => (
-          <div className="">
+          <div 
+            key={index}
+            className=""
+          >
             <div className="mt-24 relative flex flex-wrap gap-8 ">
               <div className="h-120 w-104 bg-green-50 rounded-xl p-4 content-fit">
                 <div className="h-104 w-full bg-green-400 rounded-lg"></div>
