@@ -12,7 +12,7 @@ export default function Hero() {
       <Jvideo
         src="/vids/hero.webm"
         poster="/hp.png"
-        className="h-full"
+        className="h-full object-cover"
       />
 
       {/* darken video so text stays readable */}
