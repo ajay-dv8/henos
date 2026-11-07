@@ -31,7 +31,7 @@ function TextLayer({
   // each text fades out fully BEFORE the step boundary, and the next one
   // only fades in after a short quiet gap — so the empty moment reads clearly
   const gap = seg * 0.12; // quiet moment around each boundary
-  const win = seg * 0.15; // fade duration
+  const win = seg * 0.2; // fade duration
 
   // first text starts visible; last one holds to the end
   let range: number[];
