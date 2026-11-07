@@ -25,6 +25,12 @@ const services = [
     description: "lorem ipsum",
     image: "",
   },
+    {
+    id: 5,
+    title: "Cylinder exchnge",
+    description: "lorem ipsum",
+    image: "",
+  },
 ];
 
 export default function AboutSection() {
