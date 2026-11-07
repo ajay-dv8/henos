@@ -13,23 +13,7 @@ import type { RefObject } from "react";
 type servicesType = {};
 
 const services = [
-  {
-    id: 1,
-    title: "Delivery",
-    description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque iure ducimus doloremque incidunt beatae similique harum eaque et recusandae odio, minima enim maiores dolorem officiis? Vero impedit illum dolorum suscipit?",
-    image: "",
-    titleTwo: "",
-    subImage: "",
-  },
-  {
-    id: 2,
-    title: "Industrial",
-    description: "lorem ipsum",
-    image: "",
-    titleTwo: "",
-    subImage: "",
-  },
-  {
+    {
     id: 3,
     title: "Drive through",
     description:
@@ -38,6 +22,23 @@ const services = [
     subTitle: "",
     subImage: "/images/dt2.jpg",
   },
+  {
+    id: 2,
+    title: "Delivery",
+    description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque iure ducimus doloremque incidunt beatae similique harum eaque et recusandae odio, minima enim maiores dolorem officiis? Vero impedit illum dolorum suscipit?",
+    image: "",
+    titleTwo: "",
+    subImage: "",
+  },
+  {
+    id: 3,
+    title: "Industrial",
+    description: "lorem ipsum",
+    image: "",
+    titleTwo: "",
+    subImage: "",
+  },
+
   {
     id: 4,
     title: "USSD",
@@ -87,14 +88,23 @@ function StackCard({
       ref={keepSelfRef}
       style={{ scale, filter }}
       className={cn(
-        "h-152 mt-24 sticky top-24 flex gap-28 group justify-between bg-gray-200 p-12",
+        " mt-24 sticky top-24 flex gap-28 group justify-between bg-gray-300 p-12 rounded-lg",
         // alternate: odd cards have the image block on the right
         index % 2 === 1 && "flex-row-reverse"
       )}
     >
       {/* Main image section */}
-      <div className="h-152 w-[62rem] flex flex-col bg-green-400 abs-border rounded-md">
-        <div className="bg-gray-200 w-fit rounded-br-md px-4 py-2 flex gap-4 items-center">
+      <div className="h-152 w-[62rem] flex flex-col bg-green-400 abs-border rounded-md relative overflow-hidden">
+        {/* bg picture (transition effect to be reintroduced later) */}
+        {service.image && (
+          <img
+            src={service.image}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        )}
+
+        <div className="relative bg-gray-300 w-fit rounded-br-md px-4 py-2 flex gap-4 items-center">
           <span className="size-2 rounded-full bg-green-400 animate-pulse" />
           <h3 className="text-3xl font-semibold text-gray-700 ">
             {service.title}
@@ -102,21 +112,19 @@ function StackCard({
         </div>
 
         {/* buttom section */}
-        <div className="mt-auto flex w-full">
+        <div className="mt-auto flex w-full relative">
           {/* description */}
           <div className="p-4 rounded-bl-md border-white/10 bg-white/10 p-4 backdrop-blur-md transition group-hover:bg-white/20">
             <p className="w-2xl">{service.description}</p>
           </div>
           {/* images section */}
           <div className="flex h-[7rem] w-[20rem] bg-black rounded-br-lg rounded-tl-lg drop-shadow-2xl">
-            <img
-              src={service.image}
-              className="w-[10rem] rounded-tl-md"
-            />
-            <img
-              src={service.subImage}
-              className="w-[10rem] rounded-r-md"
-            />
+            {service.image && (
+              <img src={service.image} alt="" className="w-[10rem] rounded-tl-md" />
+            )}
+            {service.subImage && (
+              <img src={service.subImage} alt="" className="w-[10rem] rounded-r-md" />
+            )}
           </div>
         </div>
       </div>
@@ -124,7 +132,7 @@ function StackCard({
       {/* Main description section */}
       <div className="h-full">
         <div className="">
-          <p className="">
+          <p className="w-xl text-gray-700 text-lg">
             {service.description}
           </p>
         </div>
