@@ -110,7 +110,7 @@ function StackCard({
         // mobile: fixed-width card inside the drag track, content stacked
         "flex flex-col gap-4 items-start p-2 rounded-lg w-[84vw] shrink-0 snap-center",
         // desktop: full-width sticky card, image and text side by side
-        "md:mt-24 md:sticky md:top-24 md:flex-row md:group md:justify-between md:bg-gray-300 md:p-0 md:w-auto md:shrink",
+        "md:mt-24 md:sticky md:top-24 md:flex-row md:group md:justify-between md:bg-gray-100 md:p-0 md:w-auto md:shrink",
         // alternate: odd cards have the image block on the right
         index % 2 === 1 && "md:flex-row-reverse",
         // same surface in both layouts
@@ -131,9 +131,9 @@ function StackCard({
           />
         )}
 
-        <div className="relative bg-gray-300 w-fit rounded-br-md px-2 md:px-4 py-1 md:py-2 flex gap-4 items-center">
+        <div className="relative bg-white/10 backdrop-blur-xs w-fit rounded-br-md px-2 md:px-4 py-1 md:py-2 flex gap-4 items-center">
           <span className="size-2 hidden md:block rounded-full bg-green-400 animate-pulse" />
-          <h3 className="text-lg md:text-3xl md:font-semibold text-gray-900 md:text-gray-700 ">
+          <h3 className="text-lg md:text-3xl md:font-semibold text-gray-50 ">
             {service.title}
           </h3>
         </div>
