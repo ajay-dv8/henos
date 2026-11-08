@@ -1,4 +1,6 @@
 import AboutSection from "@/components/about/aboutsection";
+import ContactSection from "@/components/contact-section/contact";
+import { WovenCanvas } from "@/components/ui/woven-light-hero";
 import Esg from "@/components/esg/esg";
 import Hero from "@/components/hero/hero";
 import WhyUs from "@/components/why-us/why-us";
@@ -15,6 +17,14 @@ export default function Home() {
         <AboutSection />
         <Esg />
         <WhyUs />
+
+        {/* woven-light particles behind the contact section */}
+        <section className="relative z-10 overflow-hidden bg-black">
+          <WovenCanvas />
+          <div className="relative z-10">
+            <ContactSection />
+          </div>
+        </section>
       </div>
     </div>
   );
