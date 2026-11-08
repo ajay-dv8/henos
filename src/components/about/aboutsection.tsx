@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   motion,
   useMotionTemplate,
@@ -48,18 +48,34 @@ const services = [
   },
 ];
 
+// the sticky/scale card choreography only makes sense with vertical scrolling;
+// on narrow screens the cards live in a horizontal drag track instead
+function useIsDesktop() {
+  const [is, setIs] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const on = () => setIs(mq.matches);
+    on();
+    mq.addEventListener("change", on);
+    return () => mq.removeEventListener("change", on);
+  }, []);
+  return is;
+}
+
 function StackCard({
   service,
   index,
   total,
   nextRef,
   keepSelfRef,
+  isDesktop,
 }: {
   service: (typeof services)[number];
   index: number;
   total: number;
   nextRef: RefObject<HTMLDivElement | null>;
   keepSelfRef: (el: HTMLDivElement | null) => void;
+  isDesktop: boolean;
 }) {
   // progress of the NEXT card travelling from the bottom of the viewport up
   // to its pin line — i.e. how far along it is in covering this card
@@ -77,15 +93,20 @@ function StackCard({
   return (
     <motion.div
       ref={keepSelfRef}
-      style={{ scale, filter }}
+      style={isDesktop ? { scale, filter } : undefined}
       className={cn(
-        " mt-24 sticky top-24 flex gap-28 group justify-between bg-gray-300 p-12 rounded-lg",
+        // mobile: fixed-width card inside the drag track, content stacked
+        "flex flex-col gap-4 items-start p-2 rounded-lg w-[84vw] shrink-0 snap-center",
+        // desktop: full-width sticky card, image and text side by side
+        "md:mt-24 md:sticky md:top-24 md:flex-row md:gap-28 md:group md:justify-between md:bg-gray-300 md:p-12 md:w-auto md:shrink",
         // alternate: odd cards have the image block on the right
-        index % 2 === 1 && "flex-row-reverse"
+        index % 2 === 1 && "md:flex-row-reverse",
+        // same surface in both layouts
+        "bg-gray-300"
       )}
     >
       {/* Main image section */}
-      <div className="h-152 w-[62rem] flex flex-col rounded-md relative overflow-hidden">
+      <div className="h-64 w-full flex flex-col rounded-md relative overflow-hidden md:h-152 md:flex-1 md:min-w-0">
         {/* bg picture (transition effect to be reintroduced later) */}
         {service.image && (
           <img
@@ -95,35 +116,35 @@ function StackCard({
           />
         )}
 
-        <div className="relative bg-gray-300 w-fit rounded-br-md px-4 py-2 flex gap-4 items-center">
-          <span className="size-2 rounded-full bg-green-400 animate-pulse" />
-          <h3 className="text-3xl font-semibold text-gray-700 ">
+        <div className="relative bg-gray-300 w-fit rounded-br-md px-2 md:px-4 py-1 md:py-2 flex gap-4 items-center">
+          <span className="size-2 hidden md:block rounded-full bg-green-400 animate-pulse" />
+          <h3 className="text-lg md:text-3xl md:font-semibold text-gray-900 md:text-gray-700 ">
             {service.title}
           </h3>
         </div>
 
         {/* buttom section */}
-        <div className="mt-auto flex w-full relative">
+        <div className="mt-auto hidden md:flex w-full relative">
           {/* description */}
           <div className="p-4 rounded-bl-md rounded-tr-md  border border-white/10 bg-white/10 backdrop-blur-sm transition group-hover:bg-white/20">
-            <p className="w-2xl text-3xl text-white drop-shadow-2xl">{service.subTitle}</p>
+            <p className="w-full text-xl text-white drop-shadow-2xl md:w-2xl md:text-3xl">{service.subTitle}</p>
           </div>
           {/* images section */}
-          <div className="flex h-[7rem] w-[20rem] bg-black rounded-br-lg rounded-tl-lg drop-shadow-2xl">
+          <div className="flex h-24 w-1/2 bg-black rounded-br-lg rounded-tl-lg drop-shadow-2xl md:h-[7rem] md:w-[20rem]">
             {service.image && (
-              <img src={service.image} alt="" className="w-[10rem] rounded-tl-md" />
+              <img src={service.image} alt="" className="w-1/2 rounded-tl-md md:w-[10rem]" />
             )}
             {service.subImage && (
-              <img src={service.subImage} alt="" className="w-[10rem] rounded-r-md" />
+              <img src={service.subImage} alt="" className="w-1/2 rounded-r-md md:w-[10rem]" />
             )}
           </div>
         </div>
       </div>
 
       {/* Main description section */}
-      <div className="h-full">
+      <div className="md:h-full md:w-[21rem] md:shrink-0">
         <div className="">
-          <p className="w-xl text-gray-700 text-lg">
+          <p className="text-gray-700 text-sm md:text-lg">
             {service.description}
           </p>
         </div>
@@ -137,18 +158,23 @@ export default function AboutSection() {
   const cardRefs = useRef<{ current: HTMLDivElement | null }[]>(
     services.map(() => ({ current: null }))
   );
+  const isDesktop = useIsDesktop();
 
   return (
     <div className="p-6 md:p-12 relative">
       <div className="">
-        <h2 className="text-3xl max-w-5xl md:text-5xl text-gray-800 mb-4 font-medium">
+        <h2 className="text-2xl max-w-5xl md:text-5xl text-gray-800 mb-4 font-medium">
           Henos Energy delivers reliable, clean energy solutions for homes and
           businesses, powering a safer and more sustainable future in Ghana.
         </h2>
       </div>
 
-      {/* Card */}
-      <div className="flex flex-col gap-24 w-full bg-gray-200">
+      {/* Cards: horizontal drag track on mobile, vertical sticky stack on desktop */}
+      <div
+        className="flex flex-row gap-4 bg-gray-200 py-6 overflow-x-auto snap-x snap-mandatory
+          md:w-full md:flex-col md:gap-24 md:overflow-visible md:snap-none
+          max-md:scroll-px-6 max-md:[&::-webkit-scrollbar]:hidden max-md:[scrollbar-width:none]"
+      >
         {services.map((service, index) => (
           <StackCard
             key={index}
@@ -157,43 +183,10 @@ export default function AboutSection() {
             total={services.length}
             nextRef={cardRefs.current[Math.min(index + 1, services.length - 1)]}
             keepSelfRef={(el) => (cardRefs.current[index].current = el)}
+            isDesktop={isDesktop}
           />
         ))}
       </div>
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
-
-// <div className="flex gap-12">
-//   {services.map((service, index) => (
-//     <div
-//       key={index}
-//       className=""
-//     >
-//       <div className="mt-24 relative flex flex-wrap gap-8 ">
-//         <div className="h-120 w-104 bg-green-50 rounded-xl p-4 content-fit">
-//           <div className="h-104 w-full bg-green-400 rounded-lg"></div>
-
-//           <div className="mt-2 px-2">
-//             <h5 className="text-start font-semibold text-gray-700 w-full text-2xl">
-//               {service.title}
-//             </h5>
-//           </div>
-//         </div>
-//       </div>
-
-//       <div className="">
-//         <p className="">{service.description}</p>
-//       </div>
-//     </div>
-//   ))}
-// </div>
