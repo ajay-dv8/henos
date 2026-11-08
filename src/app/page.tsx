@@ -4,6 +4,7 @@ import { WovenCanvas } from "@/components/ui/woven-light-hero";
 import Esg from "@/components/esg/esg";
 import Hero from "@/components/hero/hero";
 import WhyUs from "@/components/why-us/why-us";
+import Newsletter from "@/components/contact-section/newsletter";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
             <ContactSection />
           </div>
         </section>
+        <Newsletter />
       </div>
     </div>
   );
