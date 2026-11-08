@@ -110,15 +110,18 @@ function StackCard({
         // mobile: fixed-width card inside the drag track, content stacked
         "flex flex-col gap-4 items-start p-2 rounded-lg w-[84vw] shrink-0 snap-center",
         // desktop: full-width sticky card, image and text side by side
-        "md:mt-24 md:sticky md:top-24 md:flex-row md:gap-12 md:group md:justify-between md:bg-gray-300 md:p-12 md:w-auto md:shrink",
+        "md:mt-24 md:sticky md:top-24 md:flex-row md:group md:justify-between md:bg-gray-300 md:p-0 md:w-auto md:shrink",
         // alternate: odd cards have the image block on the right
         index % 2 === 1 && "md:flex-row-reverse",
         // same surface in both layouts
-        "bg-gray-300"
+        "bg-gray-200"
       )}
     >
       {/* Main image section */}
-      <div className="h-64 w-full flex flex-col rounded-md relative overflow-hidden md:h-152 md:flex-2 md:min-w-0">
+      <div className={cn("h-64 w-full flex flex-col rounded-md md:rounded-none relative overflow-hidden md:h-152 md:flex-2 md:min-w-0",
+        index % 2 === 1 && "md:rounded-r-md",
+        index % 2 === 0 && "md:rounded-l-md",
+      )}>
         {/* bg picture (transition effect to be reintroduced later) */}
         {service.image && (
           <img
@@ -142,7 +145,7 @@ function StackCard({
             <p className="w-full text-xl text-white drop-shadow-2xl md:w-2xl md:text-3xl">{service.subTitle}</p>
           </div>
           {/* images section */}
-          <div className="flex h-24 w-1/2 bg-black rounded-br-lg rounded-tl-lg drop-shadow-2xl md:h-[7rem] md:w-[20rem]">
+          <div className="flex h-24 w-1/2 bg-transparent rounded-br-lg rounded-tl-lg drop-shadow-2xl md:h-[7rem] md:w-[20rem]">
             {service.image && (
               <img src={service.image} alt="" className="w-1/2 rounded-tl-md md:w-[10rem]" />
             )}
@@ -154,8 +157,8 @@ function StackCard({
       </div>
 
       {/* Main description section */}
-      <div className="md:h-full md:w-[21rem] md:shrink-0 md:flex-1">
-          <p className="text-gray-700 text-sm md:text-2xl">
+      <div className="md:h-full md:w-[21rem] md:shrink-0 md:flex-1 md:p-12">
+          <p className="text-gray-700 text-sm tracking-wide md:text-3xl">
             {service.description}
           </p>
       </div>
