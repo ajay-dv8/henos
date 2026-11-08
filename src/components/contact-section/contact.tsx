@@ -84,17 +84,17 @@ export default function ContactSection() {
     "w-full rounded-md border border-white/15 bg-white/10 px-4 py-3 text-white placeholder:text-white/50 focus:border-white/40 focus:outline-none";
 
   const card =
-    "rounded-md border border-white/10 bg-white/10 p-6 backdrop-blur-xs";
+    "rounded-md border border-white/10 bg-white/10 p-3 md:p-6 backdrop-blur-xs";
 
   return (
-    <div className="grid min-h-screen w-full grid-cols-1 items-stretch gap-12 px-6 py-16 md:px-10 lg:grid-cols-2 lg:gap-8">
+    <div className="grid min-h-screen w-full grid-cols-1 items-stretch gap-12 px-2 py-6 md:py-16 md:px-10 lg:grid-cols-2 lg:gap-8">
       {/* left: heading + info cards */}
       <div className="flex flex-col items-start">
-        <h2 className="text-7xl font-medium tracking-tight text-white md:text-9xl">
+        <h2 className="w-full text-6xl text-center md:text-left font-medium tracking-tight text-white md:text-9xl">
           Contact
         </h2>
 
-        <div className="mt-20 flex w-full max-w-md flex-col gap-4 lg:mt-auto">
+        <div className="mt-10 md:mt-20 flex w-full max-w-md flex-col gap-4 lg:mt-auto">
           <div className={card}>
             <h3 className="text-2xl font-medium text-white">Get in touch</h3>
             <p className="mt-4 text-sm text-white/60">e-mail us</p>
@@ -152,13 +152,13 @@ export default function ContactSection() {
       {/* right: form panel */}
       <div className={`${card} flex flex-col p-4 md:p-10`}>
         {/* logo stand-in */}
-        <p className="text-left text-sm font-medium tracking-[0.35em] text-white/70">
+        <p className="text-left text-xs md:text-sm font-medium tracking-[0.35em] text-white/70">
           HENOS ENERGY
         </p>
         {/* <h3 className="mt-4 text-left text-3xl font-medium text-white md:text-3xl">
           Send us a message
         </h3> */}
-        <p className="mt-4 max-w-3xl text-left text-4xl text-white/80">
+        <p className="mt-4 max-w-3xl text-left text-lg md:text-4xl text-white/80">
           <span className="text-white">Tell us what you need and we&apos;ll get back to you.</span> Reliable energy starts with a conversation. 
         </p>
 
