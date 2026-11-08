@@ -17,15 +17,15 @@ export default function Newsletter() {
     "w-full rounded-full border border-white/15 bg-white/10 px-4 py-3 text-white placeholder:text-white/50 focus:border-white/40 focus:outline-none";
 
   return (
-    <section className="px-6 py-16 md:py-20 bg-black w-full h-[80dvh] flex items-center justify-center">
+    <section className="px-3 md:px-6 py-16 md:py-20 bg-black w-full h-[80dvh] flex items-center justify-center">
       <div className="mx-auto max-w-6xl  p-8 md:p-12">
         <p className="text-sm text-center font-medium tracking-[0.35em] text-white/70">
           JOIN OUR NEWSLETTER
         </p>
-        <h3 className=" text-3xl font-medium tracking-tight text-white md:text-6xl my-12">
+        <h3 className=" text-3xl text-center font-medium tracking-tight text-white md:text-6xl my-6 md:my-12">
           Energy updates, straight to your inbox
         </h3>
-        <p className="mx-auto mt-3 max-w-2xl text-center text-2xl text-white/70">
+        <p className="mx-auto mt-3 max-w-2xl text-center text-lg md:text-2xl text-white/70">
           Occasional news on our projects and the grid. No spam — unsubscribe
           anytime.
         </p>
