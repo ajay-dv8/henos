@@ -90,7 +90,7 @@ export default function ContactSection() {
     <div className="grid min-h-screen w-full grid-cols-1 items-stretch gap-12 px-2 py-6 md:py-16 md:px-10 lg:grid-cols-2 lg:gap-8">
       {/* left: heading + info cards */}
       <div className="flex flex-col items-start">
-        <h2 className="w-full text-6xl text-center md:text-left font-medium tracking-tight text-white md:text-9xl">
+        <h2 className="hidden md:block  font-medium tracking-tight text-white md:text-9xl">
           Contact
         </h2>
 
