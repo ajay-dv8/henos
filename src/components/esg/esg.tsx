@@ -1,5 +1,6 @@
 import React from "react";
 import ScrollRevealParagraph from "../ui/reveal-paragraph";
+import TextType from "../ui/type-text";
 
 const paragraph = `See the impact we're making and the commitments shaping a more sustainable future.`;
 
@@ -24,10 +25,30 @@ export default function Esg() {
 
         {/* base info */}
         <div className="w-full">
-          <p className="text-lg text-gray-900 md:text-gray-700 md:text-3xl">
+          {/* <p className="text-lg text-gray-900 md:text-gray-700 md:text-3xl">
             "The quest for cleaner energy is not just a global mandate, but a
             local necessity."
-          </p>
+          </p> */}
+
+          <TextType
+            text={
+              "The quest for cleaner energy is not just a global mandate, but a local necessity."
+            }
+            typingSpeed={75}
+            typeEffect="none"
+            mistakes={0}
+            cursorStyle="underscore"
+            cursorGlide
+            showCursor
+            cursorColor="currentColor"
+            prefixColor="currentColor"
+            cursorBlinkDuration={0.5}
+            cursorCharacter="_"
+            prefix=""
+            loop={false}
+            startOnVisible
+            className="text-lg text-gray-900 md:text-gray-700 md:text-3xl"
+          />
 
           <div className="flex flex-col md:flex-row items-center justify-between mt-4 md:mt-20">
             <div className="text-right md:text-left w-full">
