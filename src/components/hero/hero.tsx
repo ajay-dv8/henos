@@ -13,6 +13,7 @@ export default function Hero() {
         src="/vids/hero.webm"
         poster="/hp.png"
         className="h-full object-cover"
+        containerClassName="h-full"
       />
 
       {/* darken video so text stays readable */}
@@ -37,10 +38,10 @@ export default function Hero() {
         {/* heading + subtext bottom left, learn more bottom right */}
         <div className="flex items-end justify-between gap-8">
           <div className="max-w-3xl">
-            <h1 className="text-5xl md:text-8xl leading-[1.05] font-medium tracking-tight">
+            <h1 className="text-5xl leading-[1.05] font-medium tracking-tight lg:text-8xl">
               Sustainable Energy Solutions for a Better Future
             </h1>
-            <p className="mt-4 max-w-3xl font-semibold text-xl text-white/80">
+            <p className="mt-4 max-w-3xl md:font-semibold text-base md:text-xl text-white/80">
               As an NPA-licensed LPG Marketing Company, Henos Energy is committed to Empowering businesses and communities to thrive in a low-carbon world through tailored clean energy solutions.
             </p>
           </div>
