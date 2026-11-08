@@ -84,7 +84,7 @@ export default function ContactSection() {
     "w-full rounded-md border border-white/15 bg-white/10 px-4 py-3 text-white placeholder:text-white/50 focus:border-white/40 focus:outline-none";
 
   const card =
-    "rounded-md border border-white/10 bg-white/10 p-3 md:p-6 backdrop-blur-xs";
+    "rounded-md p-3 md:p-6 border border-white/10 bg-white/10 backdrop-blur-xs";
 
   return (
     <div className="grid min-h-screen w-full grid-cols-1 items-stretch gap-12 px-2 py-6 md:py-16 md:px-10 lg:grid-cols-2 lg:gap-8">
