@@ -9,6 +9,7 @@ import {
   useTransform,
 } from "motion/react";
 import type { RefObject } from "react";
+import ScrollRevealParagraph from "../ui/reveal-paragraph";
 
 
 type Service = {
@@ -58,6 +59,9 @@ const services: Service[] = [
     subImage: "",
   },
 ];
+
+// Title Parapraph
+const paragraph = `Henos Energy delivers reliable, clean energy solutions for homes and businesses, powering a safer and more sustainable future in Ghana.`
 
 
 // the sticky/scale card choreography only makes sense with vertical scrolling;
@@ -176,10 +180,11 @@ export default function AboutSection() {
   return (
     <div className="p-6 md:p-12 relative">
       <div className="">
-        <h2 className="text-2xl max-w-5xl md:text-5xl text-gray-800 mb-4 font-medium">
-          Henos Energy delivers reliable, clean energy solutions for homes and
-          businesses, powering a safer and more sustainable future in Ghana.
-        </h2>
+        <ScrollRevealParagraph
+          className="text-2xl max-w-5xl md:text-5xl text-gray-800 mb-4 font-medium tracking-wide"
+          paragraph={paragraph}
+          per="word"
+        />
       </div>
 
       {/* Cards: horizontal drag track on mobile, vertical sticky stack on desktop */}

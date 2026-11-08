@@ -1,22 +1,26 @@
 import React from "react";
+import ScrollRevealParagraph from "../ui/reveal-paragraph";
+
+const paragraph = `See the impact we're making and the commitments shaping a more sustainable future.`;
 
 export default function Esg() {
   return (
     <div className="flex flex-col gap-6 p-6 bg-green-100 md:flex-row md:gap-12 md:p-12">
       {/* mobile title */}
-        <h2 className="md:hidden text-2xl text-gray-900 md:text-gray-700 md:text-5xl">
-          See the impact we're making and the commitments shaping a more
-          sustainable future.
-        </h2>
+      <h2 className="md:hidden text-2xl text-gray-900 md:text-gray-700 md:text-5xl">
+        See the impact we're making and the commitments shaping a more
+        sustainable future.
+      </h2>
       <div className="">
         <img className="rounded-md max-w-full h-auto" src={"/images/ugp.png"} />
       </div>
       <div className="flex flex-col justify-between w-full items-center">
         {/* title */}
-        <h2 className="hidden md:block text-2xl text-gray-900 md:text-gray-700 md:text-5xl">
-          See the impact we're making and the commitments shaping a more
-          sustainable future.
-        </h2>
+        <ScrollRevealParagraph
+          className="hidden md:block text-2xl text-gray-900 md:text-gray-700 md:text-5xl tracking-wide"
+          paragraph={paragraph}
+          per="word"
+        />
 
         {/* base info */}
         <div className="w-full">
@@ -27,8 +31,12 @@ export default function Esg() {
 
           <div className="flex flex-col md:flex-row items-center justify-between mt-4 md:mt-20">
             <div className="text-right md:text-left w-full">
-              <p className=" md:text-lg text-gray-800 md:text-gray-700 ">- Henry Osei Yaw</p>
-              <p className="text-xs md:text-base text-gray-600 md:pl-2 ">CEO & Founder, Henos Energy</p>
+              <p className=" md:text-lg text-gray-800 md:text-gray-700 ">
+                - Henry Osei Yaw
+              </p>
+              <p className="text-xs md:text-base text-gray-600 md:pl-2 ">
+                CEO & Founder, Henos Energy
+              </p>
             </div>
 
             <a
