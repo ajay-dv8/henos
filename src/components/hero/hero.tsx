@@ -1,9 +1,10 @@
 import { Jvideo } from "../common/video";
+import CountUp from "../ui/count-up";
 
 const stats = [
-  { label: "Delivery", value: "1750+" },
-  { label: "Client satisfaction", value: "98%" },
-  { label: "Industry experience", value: "5+ yrs" },
+  { label: "Delivery", value: 1750, extention: "+" },
+  { label: "Client satisfaction", value: 98, extention: "%" },
+  { label: "Industry experience", value: 5, extention: "+ yrs" },
 ];
 
 export default function Hero() {
@@ -24,10 +25,23 @@ export default function Hero() {
         <div className="flex justify-end">
           <div className="hidden md:block w-[420px]">
             {stats.map((stat) => (
-              <div key={stat.label} className="border-t border-white/40 pt-3 pb-7">
+              <div
+                key={stat.label}
+                className="border-t border-white/40 pt-3 pb-7"
+              >
                 <p className="text-sm text-white/70">{stat.label}</p>
                 <div className="mt-1 flex items-start justify-between">
-                  <span className="text-5xl font-medium tracking-tight">{stat.value}</span>
+                  <span className="text-5xl font-medium tracking-tight">
+                    <CountUp
+                      from={0}
+                      to={stat.value}
+                      separator=","
+                      direction="up"
+                      duration={1}
+                      className="count-up-text"
+                    />
+                    <span className="">{stat.extention}</span>
+                  </span>
                   <span className="pt-2 text-white/60">•••</span>
                 </div>
               </div>
@@ -42,7 +56,9 @@ export default function Hero() {
               Sustainable Energy Solutions for a Better Future
             </h1>
             <p className="mt-4 max-w-3xl md:font-semibold text-base md:text-xl text-white/80">
-              As an NPA-licensed LPG Marketing Company, Henos Energy is committed to Empowering businesses and communities to thrive in a low-carbon world through tailored clean energy solutions.
+              As an NPA-licensed LPG Marketing Company, Henos Energy is
+              committed to Empowering businesses and communities to thrive in a
+              low-carbon world through tailored clean energy solutions.
             </p>
           </div>
 
@@ -56,5 +72,5 @@ export default function Hero() {
         </div>
       </div>
     </div>
-  )
+  );
 }
