@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Mail, MapPin, Phone } from "lucide-react";
 
 const CONTACT_INFO = {
   email: "info@henosenergy.com",
@@ -39,6 +40,33 @@ const SOCIALS: { label: string; href: string; path: string }[] = [
   },
 ];
 
+// link whose matching icon slides in from the left on hover
+function InfoLink({
+  href,
+  icon: Icon,
+  external,
+  children,
+}: {
+  href: string;
+  icon: React.ComponentType<{ className?: string }>;
+  external?: boolean;
+  children: React.ReactNode;
+}) {
+  return (
+    <a
+      href={href}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noreferrer" : undefined}
+      className="group flex w-fit items-center text-lg text-white"
+    >
+      <span className="flex w-0 items-center overflow-hidden opacity-0 transition-all duration-300 ease-out group-hover:w-6 group-hover:opacity-100">
+        <Icon className="size-4 shrink-0 text-white/60" />
+      </span>
+      <span className="text-lg">{children}</span>
+    </a>
+  );
+}
+
 export default function ContactSection() {
   const [form, setForm] = useState({ name: "", phone: "", email: "", message: "" });
 
@@ -70,31 +98,23 @@ export default function ContactSection() {
           <div className={card}>
             <h3 className="text-2xl font-medium text-white">Get in touch</h3>
             <p className="mt-4 text-sm text-white/60">e-mail us</p>
-            <a
-              href={`mailto:${CONTACT_INFO.email}`}
-              className="text-lg text-white hover:underline"
-            >
+            <InfoLink href={`mailto:${CONTACT_INFO.email}`} icon={Mail}>
               {CONTACT_INFO.email}
-            </a>
+            </InfoLink>
             <p className="mt-3 text-sm text-white/60">Call us</p>
             {CONTACT_INFO.phones.map((p) => (
-              <a
-                key={p.tel}
-                href={`tel:${p.tel}`}
-                className="block text-lg text-white hover:underline"
-              >
+              <InfoLink key={p.tel} href={`tel:${p.tel}`} icon={Phone}>
                 {p.display}
-              </a>
+              </InfoLink>
             ))}
             <p className="mt-3 text-sm text-white/60">Locate us at</p>
-            <a
+            <InfoLink
               href={CONTACT_INFO.location.mapsUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="text-lg text-white hover:underline"
+              icon={MapPin}
+              external
             >
               {CONTACT_INFO.location.label}
-            </a>
+            </InfoLink>
           </div>
 
           <div className={card}>
