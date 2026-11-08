@@ -24,7 +24,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {children}
           <ZiyarnWidget
             slug="Henos"
-            secret={"c993543fb3b7286aeef5b21bd0e660630f50dbe6a3cd64d008a61ccd82e032a6"}
+            secret={process.env.ZIYARN_EMBED_SECRET!}
             variant="sleek"
             data-title="Chat with us"
           />  
