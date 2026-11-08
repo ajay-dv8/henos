@@ -138,7 +138,7 @@ export default function ContactSection() {
         {/* <h3 className="mt-4 text-left text-3xl font-medium text-white md:text-3xl">
           Send us a message
         </h3> */}
-        <p className="mt-4 max-w-3xl text-left text-3xl text-white/80">
+        <p className="mt-4 max-w-3xl text-left text-4xl text-white/80">
           <span className="text-white">Tell us what you need and we&apos;ll get back to you.</span> Reliable energy starts with a conversation. 
         </p>
 
