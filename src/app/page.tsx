@@ -12,8 +12,10 @@ export default function Home() {
     <div>
       <Hero />
 
-      {/* hero is position:fixed, so this spacer is the first viewport it occupies */}
-      <div aria-hidden className="h-screen" />
+      {/* hero is position:fixed; h-dvh tracks the visible device height on
+          mobile/tablet (no cut-off under the URL bar) and equals h-screen
+          on desktop, so the look is unchanged there */}
+      <div aria-hidden className="h-dvh" />
 
       <div className="relative z-10 bg-gray-200">
         <AboutSection />
