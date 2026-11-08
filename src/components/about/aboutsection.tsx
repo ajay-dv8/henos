@@ -10,43 +10,55 @@ import {
 } from "motion/react";
 import type { RefObject } from "react";
 
-type servicesType = {};
 
-const services = [
-    {
+type Service = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  subTitle: string;
+  subImage: string;
+};
+
+const services: Service[] = [
+  {
     id: 1,
     title: "Drive through",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque iure ducimus doloremque incidunt beatae similique harum eaque et recusandae odio, minima enim maiores dolorem officiis? Vero impedit illum dolorum suscipit?",
+      "Get your LPG quickly and conveniently without leaving your vehicle. Our drive-through service makes refilling easier, saving you time while ensuring a smooth and hassle-free experience.",
     image: "/images/dt1.jpg",
-    subTitle: "Convinience at you service, we make it simple for you ",
+    subTitle: "Convenience at your service. Quick, simple, and hassle-free.",
     subImage: "/images/dt2.jpg",
   },
   {
     id: 2,
     title: "Delivery",
-    description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque iure ducimus doloremque incidunt beatae similique harum eaque et recusandae odio, minima enim maiores dolorem officiis? Vero impedit illum dolorum suscipit?",
+    description:
+      "Enjoy the convenience of having your LPG delivered right to your doorstep. Whether for your home or business, Henos Energy makes it easier to get the gas you need without making the trip.",
     image: "/images/d1.png",
-    subTitle: "Cant make it to us? Dont worry, We will come to you",
+    subTitle: "Can't make it to us? Don't worry. We'll bring the energy to you.",
     subImage: "",
   },
   {
     id: 3,
     title: "Industrial",
-    description: "lorem ipsum",
+    description:
+      "We provide dependable LPG supply solutions for industrial and commercial operations. From supporting daily processes to meeting larger energy demands, we help businesses access the fuel they need to keep running efficiently.",
     image: "/images/ind1.jpg",
-    subTitle: "Reliable and efficient energy solutions for your business",
+    subTitle: "Reliable energy solutions designed to keep your business moving.",
     subImage: "",
   },
   {
     id: 4,
-    title: "Cylinder exchnge",
-    description: "lorem ipsum",
+    title: "Cylinder exchange",
+    description:
+      "Make LPG refills easier with our convenient cylinder exchange service. Bring in your empty cylinder and exchange it for a filled one, so you can get back to what matters without unnecessary delays.",
     image: "/images/cx.png",
-    subTitle: "Convenient cylinder exchange service, ya fiili didaada!!!",
+    subTitle: "Empty to full, without the hassle. Ya fiili didaada!",
     subImage: "",
   },
 ];
+
 
 // the sticky/scale card choreography only makes sense with vertical scrolling;
 // on narrow screens the cards live in a horizontal drag track instead
@@ -98,7 +110,7 @@ function StackCard({
         // mobile: fixed-width card inside the drag track, content stacked
         "flex flex-col gap-4 items-start p-2 rounded-lg w-[84vw] shrink-0 snap-center",
         // desktop: full-width sticky card, image and text side by side
-        "md:mt-24 md:sticky md:top-24 md:flex-row md:gap-28 md:group md:justify-between md:bg-gray-300 md:p-12 md:w-auto md:shrink",
+        "md:mt-24 md:sticky md:top-24 md:flex-row md:gap-12 md:group md:justify-between md:bg-gray-300 md:p-12 md:w-auto md:shrink",
         // alternate: odd cards have the image block on the right
         index % 2 === 1 && "md:flex-row-reverse",
         // same surface in both layouts
@@ -106,7 +118,7 @@ function StackCard({
       )}
     >
       {/* Main image section */}
-      <div className="h-64 w-full flex flex-col rounded-md relative overflow-hidden md:h-152 md:flex-1 md:min-w-0">
+      <div className="h-64 w-full flex flex-col rounded-md relative overflow-hidden md:h-152 md:flex-2 md:min-w-0">
         {/* bg picture (transition effect to be reintroduced later) */}
         {service.image && (
           <img
@@ -142,12 +154,10 @@ function StackCard({
       </div>
 
       {/* Main description section */}
-      <div className="md:h-full md:w-[21rem] md:shrink-0">
-        <div className="">
-          <p className="text-gray-700 text-sm md:text-lg">
+      <div className="md:h-full md:w-[21rem] md:shrink-0 md:flex-1">
+          <p className="text-gray-700 text-sm md:text-2xl">
             {service.description}
           </p>
-        </div>
       </div>
     </motion.div>
   );
