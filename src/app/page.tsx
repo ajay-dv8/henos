@@ -17,7 +17,7 @@ export default function Home() {
           on desktop, so the look is unchanged there */}
       <div aria-hidden className="h-dvh" />
 
-      <div className="relative z-10 bg-gray-200">
+      <div className="relative z-10 bg-linear-to-bl from-green-50 to-green-100">
         <AboutSection />
         <Esg />
         <WhyUs />
