@@ -25,11 +25,6 @@ export default function Esg() {
 
         {/* base info */}
         <div className="w-full">
-          {/* <p className="text-lg text-gray-900 md:text-gray-700 md:text-3xl">
-            "The quest for cleaner energy is not just a global mandate, but a
-            local necessity."
-          </p> */}
-
           <TextType
             text={
               "The quest for cleaner energy is not just a global mandate, but a local necessity."
