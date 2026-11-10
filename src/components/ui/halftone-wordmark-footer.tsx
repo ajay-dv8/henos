@@ -40,6 +40,8 @@ export interface HalftoneWordmarkFooterProps {
   wordmark?: string
   /** Top-left studio line. */
   label?: string
+  /** Optional brand logo rendered above the label. */
+  logo?: React.ReactNode
   /** The muted line under it. */
   meta?: string
   /** Link columns along the top. */
@@ -153,6 +155,7 @@ const HWF_CSS = `
 }
 .hwf-brand strong { display: block; font-weight: 500; }
 .hwf-brand span { opacity: .45; }
+.hwf-brand img { display: block; height: 90px; width: auto; margin-bottom: 1px; }
 .hwf-col h3 { margin: 0; font: inherit; opacity: .4; font-weight: 500; }
 .hwf-col ul { list-style: none; margin: 0; padding: 0; }
 .hwf-col a, .hwf-up {
@@ -182,6 +185,7 @@ const HWF_CSS = `
 export default function HalftoneWordmarkFooter({
   wordmark = "halden",
   label = "Halden Studio",
+  logo,
   meta = "©2026 · Oslo / Lisbon",
   columns = DEFAULT_COLUMNS,
   backToTop = true,
@@ -469,6 +473,7 @@ export default function HalftoneWordmarkFooter({
       <span className="hwf-sr">{wordmark}</span>
       <div className="hwf-top">
         <div className="hwf-brand">
+          {logo}
           <strong>{label}</strong>
           <span>{meta}</span>
         </div>
