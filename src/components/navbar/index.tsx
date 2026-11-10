@@ -64,7 +64,7 @@ export default function SiteNavbar() {
       >
         <div
           className={cn(
-            "flex w-full items-center justify-between gap-4 rounded-full border pl-5 pr-1 py-1 transition-[background-color,border-color,box-shadow,color] duration-500",
+            "flex w-full items-center justify-between gap-4 rounded-full border pl-5 pr-1 py-0.5 sm:py-1 transition-[background-color,border-color,box-shadow,color] duration-500",
             scrolled
               ? "border-black/10 bg-green-50/75 text-gray-800 shadow-md shadow-black/5 backdrop-blur-lg"
               : "border-white/15 bg-white/5 text-white backdrop-blur-md"
@@ -123,7 +123,7 @@ export default function SiteNavbar() {
               aria-expanded={open}
               aria-label={open ? "Close menu" : "Open menu"}
               className={cn(
-                "relative z-50 flex size-10 flex-col items-center justify-center rounded-full border transition-colors md:hidden",
+                "relative z-50 flex size-8 flex-col items-center justify-center rounded-full transition-colors md:hidden",
                 scrolled ? "border-gray-900 text-gray-800" : "border-white/25 text-white"
               )}
             >
@@ -191,7 +191,7 @@ export default function SiteNavbar() {
                 onClick={() => setOpen(false)}
                 className="flex items-center justify-center gap-2 rounded-full bg-green-600 px-6 py-4 text-center font-medium hover:bg-green-500"
               >
-                Get a quote
+                Contact us
                 <span aria-hidden>↳</span>
               </Link>
             </motion.div>
