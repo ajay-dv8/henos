@@ -52,7 +52,7 @@ export default function AboutSection() {
   );
 
   return (
-    <div className="relative">
+    <div className="relative" id="services">
       {/* Title Paragraph */}
       <div className="p-6 md:p-12">
         <ScrollRevealParagraph
