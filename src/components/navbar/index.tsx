@@ -107,7 +107,7 @@ export default function SiteNavbar() {
                   : "border-white/20 bg-white/10 hover:bg-white/20"
               )}
             >
-              Get a quote
+              Contact Us
             </Link>
 
             {/* hamburger → X */}
