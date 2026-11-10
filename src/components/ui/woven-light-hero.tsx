@@ -170,7 +170,9 @@ export const WovenCanvas = () => {
     const handleMouseMove = (event: MouseEvent) => {
         // map the cursor into canvas space so the effect follows the mouse even
         // when the canvas sits inside a scrolled section (not only in a fixed hero)
-        const rect = mountRef.current!.getBoundingClientRect();
+        const mount = mountRef.current;
+        if (!mount) return; // can fire during unmount/Fast-Refresh races
+        const rect = mount.getBoundingClientRect();
         mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
         mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
     };
