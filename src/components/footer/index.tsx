@@ -40,8 +40,16 @@ export default function Footer() {
     <div className="w-full">
       <HalftoneWordmarkFooter
         wordmark="henos"
-        label="Henos Energy Limited Company"
-        meta="©2026 · Accra, Ghana"
+        logo={
+          <img
+            src="/images/fLogo.png"
+            alt="Henos Energy"
+            width={1000}
+            height={416}
+          />
+        }
+        label=""
+        meta="©2026 · Lakeside Estates, Community 8. Gh"
         columns={COLUMNS}
         fontFamily={SANS}
         preset="night"

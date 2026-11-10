@@ -70,13 +70,20 @@ export default function SiteNavbar() {
               : "border-white/15 bg-white/5 text-white backdrop-blur-md"
           )}
         >
-          {/* logo */}
+          {/* logo — dark-green wordmark needs a light chip to read over the hero video,
+              and blends into the white glass bar once scrolled */}
           <Link
             href="/"
             aria-label="Henos Energy home"
-            className="text-xl font-semibold tracking-tight"
+            className="rounded-full p-1 pr-2.5"
           >
-            henos<span className="text-green-500">.</span>
+            <img
+              src="/images/nLogo.png"
+              alt="Henos Energy"
+              width={220}
+              height={53}
+              className="h-6 w-auto"
+            />
           </Link>
 
           {/* desktop links */}
