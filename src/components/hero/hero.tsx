@@ -62,10 +62,15 @@ export default function Hero() {
             </p>
           </div>
 
+          {/* get a better functionality for this section */}
           <a
             href="#"
             className="hidden md:flex h-24 w-48 flex-col justify-between rounded-md border border-white/10 bg-white/10 p-4 backdrop-blur-md transition hover:bg-white/20"
           >
+            <span className="text-sm mb-2">
+              USSD:  <span className="font-bold">*899*89#</span>
+            </span>
+           
             <span className="text-sm">Learn More</span>
             <span className="self-end">↳</span>
           </a>
