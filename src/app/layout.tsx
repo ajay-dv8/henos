@@ -4,6 +4,7 @@ import "./globals.css";
 import SiteNavbar from "@/components/navbar";
 import { LenisProvider } from "@/components/ui/lenis-provider";
 import { ZiyarnWidget } from "@/components/ziyarn-widget";
+import Footer from "@/components/footer";
 
 // system font stack (SF Pro on Apple) is set in globals.css
 const geistMono = Geist_Mono({
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <LenisProvider>
           <SiteNavbar />
           {children}
+          <Footer />  
           <ZiyarnWidget
             slug="Henos"
             secret={process.env.ZIYARN_EMBED_SECRET!}
