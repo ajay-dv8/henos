@@ -21,8 +21,8 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black/40 pointer-events-none" />
 
       <div className="absolute inset-0 flex flex-col justify-between p-6 md:p-12">
-        {/* stats, top right */}
-        <div className="flex justify-end">
+        {/* stats, top right (nudged below the floating navbar pill) */}
+        <div className="flex justify-end md:pt-6">
           <div className="hidden md:block w-[420px]">
             {stats.map((stat) => (
               <div
