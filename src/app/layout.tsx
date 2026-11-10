@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SiteNavbar from "@/components/navbar";
+import { LenisProvider } from "@/components/ui/lenis-provider";
 import { ZiyarnWidget } from "@/components/ziyarn-widget";
 
 // system font stack (SF Pro on Apple) is set in globals.css
@@ -19,17 +20,19 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistMono.variable} h-full antialiased scroll-smooth`}
+      className={`${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <SiteNavbar />
-        {children}
+        <LenisProvider>
+          <SiteNavbar />
+          {children}
           <ZiyarnWidget
             slug="Henos"
             secret={process.env.ZIYARN_EMBED_SECRET!}
             variant="sleek"
             data-title="Chat with us"
-          />  
+          />
+        </LenisProvider>
       </body>
     </html>
   );
