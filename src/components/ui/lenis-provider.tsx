@@ -13,7 +13,7 @@ export function LenisProvider({ children }: { children: ReactNode }) {
       // driven by gsap.ticker below (autoRaf defaults to false)
     });
 
-    // canonical Lenis + ScrollTrigger integration (from the Lenis README):
+    // canonical Lenis + ScrollTrigger integration:
     // one rAF clock for both, so pinned/scrubbed triggers stay in sync
     lenis.on("scroll", ScrollTrigger.update);
     const raf = (time: number) => lenis.raf(time * 1000);
