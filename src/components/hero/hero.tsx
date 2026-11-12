@@ -23,7 +23,7 @@ export default function Hero() {
       <div className="absolute inset-0 flex flex-col justify-between p-6 md:p-12">
         {/* stats, top right (nudged below the floating navbar pill) */}
         <div className="flex justify-end md:pt-6">
-          <div className="hidden md:block w-[420px]">
+          <div className="hidden md:block w-105">
             {stats.map((stat) => (
               <div
                 key={stat.label}
@@ -68,7 +68,7 @@ export default function Hero() {
             className="hidden md:flex h-24 w-48 flex-col justify-between rounded-md border border-white/10 bg-white/10 p-4 backdrop-blur-md transition hover:bg-white/20"
           >
             <span className="text-sm mb-2">
-              USSD:  <span className="font-bold">*899*89#</span>
+              USSD:  <span className="font-bold text-base">*899*89#</span>
             </span>
            
             <span className="text-sm">Learn More</span>
