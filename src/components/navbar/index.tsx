@@ -75,7 +75,7 @@ export default function SiteNavbar() {
           <Link
             href="/"
             aria-label="Henos Energy home"
-            className="rounded-full p-1 pr-2.5"
+            className="rounded-full pr-2"
           >
             <img
               src="/images/nLogo.png"
