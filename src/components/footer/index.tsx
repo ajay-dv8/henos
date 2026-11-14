@@ -46,6 +46,7 @@ export default function Footer() {
             alt="Henos Energy"
             width={1000}
             height={416}
+            loading="lazy"
           />
         }
         label=""

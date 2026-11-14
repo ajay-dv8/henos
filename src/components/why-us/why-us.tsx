@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import {
   motion,
   useMotionTemplate,
@@ -8,6 +9,9 @@ import {
   useTransform,
   type MotionValue,
 } from "motion/react";
+
+// motion wrapper for next/image so the scroll-linked scale still drives the img
+const MotionImage = motion.create(Image);
 
 const texts = [
   "Count on dependable LPG supply and responsive service to keep your home or business running without unnecessary interruptions.",
@@ -128,11 +132,13 @@ export default function WhyUs() {
     <div ref={track} className="relative h-[300vh]">
       {/* sticky viewport: image + centered texts + loader */}
       <div className="sticky top-0 h-screen overflow-hidden">
-        <motion.img
+        <MotionImage
           src="/images/wu.webp"
           alt=""
+          fill
+          sizes="100vw"
           style={{ scale: imgScale }}
-          className="absolute inset-0 h-full w-full object-cover"
+          className="object-cover"
         />
 
         {/* dark overlay so text stays readable */}

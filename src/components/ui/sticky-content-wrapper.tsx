@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useLayoutEffect, useRef, useEffect } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
@@ -448,13 +449,15 @@ function StickyContentComp({
               }}
               className={`absolute inset-0 h-full w-full opacity-0 ${imageClassName}`}
             >
-              <img
-                src={item.image}
-                alt={item.alt || item.imageAlt || `sticky-image-${index + 1}`}
-                className="h-full w-full object-cover"
-                width={item.width || 1080}
-                height={item.height || 1080}
-              />
+              {item.image && (
+                <Image
+                  src={item.image}
+                  alt={item.alt || item.imageAlt || `sticky-image-${index + 1}`}
+                  fill
+                  sizes="(min-width: 1026px) 70vw, 100vw"
+                  className="object-cover"
+                />
+              )}
             </div>
           ))}
         </div>

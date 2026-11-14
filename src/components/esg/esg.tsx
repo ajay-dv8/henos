@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import ScrollRevealParagraph from "../ui/reveal-paragraph";
 import TextType from "../ui/type-text";
 
@@ -13,7 +14,14 @@ export default function Esg() {
         sustainable future.
       </h2>
       <div className="">
-        <img className="rounded-md max-w-full h-auto" src={"/images/ugp.webp"} />
+        <Image
+          className="rounded-md max-w-full h-auto"
+          src="/images/ugp.webp"
+          alt="Henos Energy worker in a branded 'Your Gas People' safety jacket"
+          width={2560}
+          height={1820}
+          sizes="(min-width: 768px) 50vw, 100vw"
+        />
       </div>
       <div className="flex flex-col justify-between w-full items-center">
         {/* title */}
