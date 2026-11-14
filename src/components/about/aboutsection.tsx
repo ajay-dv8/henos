@@ -17,7 +17,7 @@ const services = [
     title: "Delivery",
     description:
       "Enjoy the convenience of having your LPG delivered right to your doorstep. Whether for your home or business, Henos Energy makes it easier to get the gas you need without making the trip.",
-    image: "/images/d1.png",
+    image: "/images/d1.webp",
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ const services = [
     title: "Cylinder exchange",
     description:
       "Make LPG refills easier with our convenient cylinder exchange service. Bring in your empty cylinder and exchange it for a filled one, so you can get back to what matters without unnecessary delays.",
-    image: "/images/cx.png",
+    image: "/images/cx.webp",
   },
 ];
 

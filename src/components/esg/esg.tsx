@@ -13,7 +13,7 @@ export default function Esg() {
         sustainable future.
       </h2>
       <div className="">
-        <img className="rounded-md max-w-full h-auto" src={"/images/ugp.png"} />
+        <img className="rounded-md max-w-full h-auto" src={"/images/ugp.webp"} />
       </div>
       <div className="flex flex-col justify-between w-full items-center">
         {/* title */}

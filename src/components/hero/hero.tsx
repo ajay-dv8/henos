@@ -11,7 +11,7 @@ export default function Hero() {
   return (
     <div className="fixed inset-0 z-0 overflow-hidden text-white">
       <Jvideo
-        src="/vids/hero.webm"
+        src="/vids/hero.mp4"
         poster="/hp.png"
         className="h-full object-cover"
         containerClassName="h-full"
